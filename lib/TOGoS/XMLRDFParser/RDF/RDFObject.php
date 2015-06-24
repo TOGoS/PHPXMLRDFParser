@@ -1,19 +1,25 @@
 <?php
 
-class TOGoS_XMLRDFParser_RDF_RDFObject implements ArrayAccess
+class TOGoS_XMLRDFParser_RDF_RDFObject implements ArrayAccess, TOGoS_XMLRDFParser_URIRef
 {
+	protected $uris = array();
 	protected $props = array();
 	
 	const RDF_TYPE_PROPERTY = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type';
 	
-	public function __construct( $className=null, $propMap=array() ) {
+	public function __construct( $className=null, $propMap=array(), $uri ) {
 		if( $className !== null ) {
 			$this->addProperty( self::RDF_TYPE_PROPERTY, new TOGoS_XMLRDFParser_RDF_URIRef($className) );
 		}
 		foreach( $propMap as $k=>$v ) {
 			$this->addProprety( $k, $v );
 		}
+		if( $uri ) $this->addUri($uri);
 	}
+	
+	public function getUris() { return $this->uris; }
+	public function addUri( $uri ) { $this->uris[$uri] = $uri; }
+	public function getUri() { foreach($this->uris as $uri) return $uri; return null; }
 	
 	public function addProperty( $k, $v ) {
 		if( !isset($this->props[$k]) ) {

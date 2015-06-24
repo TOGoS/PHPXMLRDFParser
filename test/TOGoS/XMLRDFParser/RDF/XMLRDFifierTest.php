@@ -41,6 +41,7 @@ class TOGoS_XMLRDFParser_RDF_XMLRDFifierTest extends PHPUnit_Framework_TestCase
 		$this->assertEquals( 'Dan Brickley', $v['http://xmlns.com/foaf/0.1/name'] );
 		$this->assertRefUriEquals( 'http://danbri.org/', $v['http://xmlns.com/foaf/0.1/homepage'] );
 		$this->assertRefUriEquals( 'http://danbri.org/', $v['http://xmlns.com/foaf/0.1/openid'] );
+		$this->assertEquals( '#danbri', $v->getUri() );
 		$this->assertRefUriEquals( '/images/me.jpg', $v['http://xmlns.com/foaf/0.1/img'] );
 	}
 	

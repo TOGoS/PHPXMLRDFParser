@@ -3,8 +3,8 @@
 class TOGoS_XMLRDFParser_RDF_RDFObjectConstructor
 	implements TOGoS_XMLRDFParser_RDF_ObjectConstructor
 {
-	public function createObject( $className ) {
-		return new TOGoS_XMLRDFParser_RDF_RDFObject( $className );
+	public function createObject( $className, $uri=null ) {
+		return new TOGoS_XMLRDFParser_RDF_RDFObject( $className, array(), $uri );
 	}
 	public function addProperty( $subject, $propName, $value ) {
 		$subject->addProperty( $propName, $value );

@@ -55,16 +55,23 @@ class TOGoS_XMLRDFParser_RDF_XMLRDFifier
 	public function openTag( $name, array $attributes ) {
 		$nodeId = null;
 		$resourceUri = null;
+		$aboutUri = null;
 		foreach( $attributes as $k=>$v ) {
-			if( $k === 'http://www.w3.org/1999/02/22-rdf-syntax-ns#nodeID' ) {
+			switch( $k ) {
+			case 'http://www.w3.org/1999/02/22-rdf-syntax-ns#nodeID':
 				$nodeId = $v;
-			} else if( $k == 'http://www.w3.org/1999/02/22-rdf-syntax-ns#resource' ) {
+				break;
+			case 'http://www.w3.org/1999/02/22-rdf-syntax-ns#resource':
 				$resourceUri = $v;
+				break;
+			case 'http://www.w3.org/1999/02/22-rdf-syntax-ns#about':
+				$aboutUri = $v;
+				break;
 			}
 		}
 		
 		if( $this->mode == self::MODE_VALUE ) {
-			$this->value = $this->objectConstructor->createObject( $name );
+			$this->value = $this->objectConstructor->createObject( $name, $aboutUri );
 			if( $nodeId ) $this->namedObjects[$nodeId] = $this->value;
 			$this->mode = self::MODE_PROP;
 		} else {
