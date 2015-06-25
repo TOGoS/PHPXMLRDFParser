@@ -1,0 +1,16 @@
+{
+	"name": "togos/xml-rdf-parser",
+	"description": "Library for XML and XML+RDF parsing",
+	"license": "MIT",
+	"require": {
+		"php": ">=5.2"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^3.7"
+	},
+	"autoload": {
+		"psr-0": {
+			"TOGoS_XMLRDFParser": "lib/"
+		}
+	}
+}
