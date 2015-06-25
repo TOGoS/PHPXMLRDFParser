@@ -51,6 +51,10 @@ class TOGoS_XMLRDFParser_RDF_RDFObject implements ArrayAccess, TOGoS_XMLRDFParse
 		return $this->dataValue;
 	}
 	
+	public function getProperties() {
+		return $this->props;
+	}
+	
 	public function addProperty( $k, TOGoS_XMLRDFParser_RDF_RDFObject $v ) {
 		if( !isset($this->props[$k]) ) {
 			$this->props[$k] = array();
