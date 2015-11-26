@@ -52,6 +52,13 @@ class TOGoS_XMLRDFParser_RDF_XMLRDFifier
 		}
 	}
 	public function openTag( $name, array $attributes ) {
+		if( $this->state['type'] === 'root' and $name === 'http://www.w3.org/1999/02/22-rdf-syntax-ns#RDF' ) {
+			$collection = TOGoS_XMLRDFParser_RDF_RDFObject::collection();
+			$this->rootObject = $collection;
+			$this->state = array('type'=>'collection', 'parent'=>$this->state, 'tagname'=>$name, 'collection'=>$collection);
+			return;
+		}
+		
 		switch( $this->state['type'] ) {
 		case 'root': case 'prop': case 'collection':
 			$classUri = $name !== TOGoS_XMLRDFParser_RDF_Namespaces::RDF_DESCRIPTION ? $name : null;

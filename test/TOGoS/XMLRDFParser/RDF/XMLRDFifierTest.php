@@ -95,4 +95,26 @@ class TOGoS_XMLRDFParser_RDF_XMLRDFifierTest extends PHPUnit_Framework_TestCase
 		//$this->assertEquals(TOGoS_XMLRDFParser_RDF_
 		$this->assertEquals(3, count($subThings->getItems()));
 	}
+	
+	// rdf:RDF nodes should parse as a collection which is returned as the root object
+	function testRdf() {
+		$xml =
+			'<rdf:RDF xmlns:x="x:" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">'."\n".
+			'  <x:Thing>'."\n".
+			'    <x:name>thing1</x:name>'."\n".
+			'  </x:Thing>'."\n".
+			'  <x:Thing>'."\n".
+			'    <x:name>thing2</x:name>'."\n".
+			'  </x:Thing>'."\n".
+			'</rdf:RDF>';
+		
+		$rf = new TOGoS_XMLRDFParser_RDF_XMLRDFifier( $this->rdfParserOptions );
+		$rf->parse($xml);
+		$stuff = $rf->getRootObject();
+		
+		$things = $stuff->getItems();
+		$this->assertEquals(2, count($things));
+		$this->assertDataValueEquals('thing1', $things[0]['x:name']);
+		$this->assertDataValueEquals('thing2', $things[1]['x:name']);
+	}
 }
