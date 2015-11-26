@@ -62,6 +62,9 @@ class TOGoS_XMLRDFParser_RDF_XMLRDFifier
 				case TOGoS_XMLRDFParser_RDF_Namespaces::RDF_NODEID:
 					$nodeId = $v;
 					break;
+				case TOGoS_XMLRDFParser_RDF_Namespaces::RDF_ID:
+					$uri = '#'.$v;
+					break;
 				case TOGoS_XMLRDFParser_RDF_Namespaces::RDF_ABOUT:
 					$uri = $v;
 					break;

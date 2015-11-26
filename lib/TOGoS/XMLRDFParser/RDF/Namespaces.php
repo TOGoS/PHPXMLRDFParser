@@ -8,6 +8,7 @@ class TOGoS_XMLRDFParser_RDF_Namespaces
 	const RDF_ABOUT      = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#about';
 	const RDF_RESOURCE   = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#resource';
 	const RDF_DESCRIPTION= 'http://www.w3.org/1999/02/22-rdf-syntax-ns#Description';
+	const RDF_ID         = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#ID';
 	const RDF_NODEID     = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#nodeID';
 	
 	//// Some fake ones!
