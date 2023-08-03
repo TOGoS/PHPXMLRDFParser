@@ -73,10 +73,12 @@ class TOGoS_XMLRDFParser_RDF_RDFObject implements ArrayAccess, TOGoS_XMLRDFParse
 	
 	//// Array access for singular properties ////
 	
+	#[\ReturnTypeWillChange] // For PHP <> 8 compatibility
 	public function offsetExists( $k ) {
 		return isset($this->props[$k]) && count($this->props[$k]) > 0;
 	}
 	
+	#[\ReturnTypeWillChange] // For PHP <> 8 compatibility
 	public function offsetSet( $k, $v ) {
 		if( !($v instanceof TOGoS_XMLRDFParser_RDF_RDFObject) ) {
 			throw new Exception("Property values must themselves be RDFObjects.");
@@ -84,6 +86,7 @@ class TOGoS_XMLRDFParser_RDF_RDFObject implements ArrayAccess, TOGoS_XMLRDFParse
 		$this->props[$k] = array($v);
 	}
 	
+	#[\ReturnTypeWillChange] // For PHP <> 8 compatibility
 	public function offsetGet( $k ) {
 		if( isset($this->props[$k]) ) {
 			foreach( $this->props[$k] as $v ) return $v;
@@ -91,6 +94,7 @@ class TOGoS_XMLRDFParser_RDF_RDFObject implements ArrayAccess, TOGoS_XMLRDFParse
 		return null;
 	}
 	
+	#[\ReturnTypeWillChange] // For PHP <> 8 compatibility
 	public function offsetUnset( $k ) {
 		unset($this->props[$k]);
 	}
