@@ -1,6 +1,8 @@
 <?php
 
-class TOGoS_XMLRDFParser_XMLParserTest extends PHPUnit_Framework_TestCase implements TOGoS_XMLRDFParser_XML_XMLConsumer
+class TOGoS_XMLRDFParser_XML_XMLParserTest
+extends TOGoS_SimplerTest_TestCase
+implements TOGoS_XMLRDFParser_XML_XMLConsumer
 {
 	protected $things = array();
 	

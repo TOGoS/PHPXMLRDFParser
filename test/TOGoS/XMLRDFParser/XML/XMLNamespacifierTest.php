@@ -1,6 +1,7 @@
 <?php
 
-class TOGoS_XMLRDFParser_XMLNamespacifierTest extends PHPUnit_Framework_TestCase
+class TOGoS_XMLRDFParser_XML_XMLNamespacifierTest
+extends TOGoS_SimplerTest_TestCase
 {
 	protected $things = array();
 	

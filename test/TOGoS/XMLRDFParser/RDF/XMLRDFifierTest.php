@@ -1,6 +1,7 @@
 <?php
 
-class TOGoS_XMLRDFParser_RDF_XMLRDFifierTest extends PHPUnit_Framework_TestCase
+class TOGoS_XMLRDFParser_RDF_XMLRDFifierTest
+extends TOGoS_SimplerTest_TestCase
 {
 	protected $rdfParserOptions = array('strict'=>true);
 	

@@ -1,0 +1,58 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "8148ae0342adba9fe505c6c68d589453",
+    "packages": [],
+    "packages-dev": [
+        {
+            "name": "togos/simpler-test",
+            "version": "1.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TOGoS/PHPSimplerTest.git",
+                "reference": "dd608c23bb171623c43bfe6c5ee7fecc9e78019d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TOGoS/PHPSimplerTest/zipball/dd608c23bb171623c43bfe6c5ee7fecc9e78019d",
+                "reference": "dd608c23bb171623c43bfe6c5ee7fecc9e78019d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "bin": [
+                "bin/phpsimplertest"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "TOGoS_SimplerTest_": "src/main/php/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A simple unit test framework to support PHPUnit-like tests",
+            "support": {
+                "issues": "https://github.com/TOGoS/PHPSimplerTest/issues",
+                "source": "https://github.com/TOGoS/PHPSimplerTest/tree/1.2.4"
+            },
+            "time": "2023-08-02T18:17:37+00:00"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.2"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}
