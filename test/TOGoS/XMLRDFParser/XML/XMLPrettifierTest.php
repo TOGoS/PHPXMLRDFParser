@@ -51,4 +51,15 @@ extends TOGoS_SimplerTest_TestCase
 		$this->p->closeTag('outer');
 		$this->assertEquals("<outer>\n\tSup\n\thomies!\n\t<inner />\n\tHi there!\n</outer>", $this->output);
 	}
+
+	protected function assertUnchangedAfterRoundTrip($text) {
+		$parser = new TOGoS_XMLRDFParser_XML_XMLParser($this->p);
+		$parser->trimText = false;
+		$parser->parse($text);
+		$this->assertEquals($text, $this->output);
+	}
+
+	public function testParsePrettyDotXml() {
+		$this->assertUnchangedAfterRoundTrip(file_get_contents(__DIR__."/pretty.xml"));
+	}
 }

@@ -1,0 +1,10 @@
+<example xmlns="http://example.com/foo/" xmlns:bar="http://example.com/bar/">
+	<foo:Foo foo:about="x:the-foo">
+		<foo:fooness>9001</foo:fooness>
+		<foo:comment>
+			This is a very fooey foo!
+			It's fooier than you!
+			Cool dog.
+		</foo:comment>
+	</foo:Foo>
+</example>
