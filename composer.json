@@ -10,12 +10,12 @@
 	},
 	"autoload": {
 		"psr-0": {
-			"TOGoS_XMLRDFParser": "lib/"
+			"TOGoS_XMLRDFParser": "src/main/php/"
 		}
 	},
 	"autoload-dev": {
 		"psr-0": {
-			"TOGoS_XMLRDFParser": "test/"
+			"TOGoS_XMLRDFParser": "src/test/php/"
 		}
 	}
 }
