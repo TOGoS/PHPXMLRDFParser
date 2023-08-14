@@ -9,7 +9,6 @@
  */
 class TOGoS_XMLRDFParser_XML_XMLParser
 {
-	public $trimText = true;
 	protected $xmlConsumer;
 	
 	protected function decodeText( $text ) {
@@ -47,7 +46,6 @@ class TOGoS_XMLRDFParser_XML_XMLParser
 				}
 			} else {
 				$rawText = $m[0];
-				if( $this->trimText ) $rawText = trim($rawText);
 				if( $rawText != '' ) {
 					$c->text( $this->decodeText($rawText) );
 				}

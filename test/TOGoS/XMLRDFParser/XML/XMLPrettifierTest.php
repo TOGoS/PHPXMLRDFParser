@@ -54,7 +54,6 @@ extends TOGoS_SimplerTest_TestCase
 
 	protected function assertUnchangedAfterRoundTrip($text) {
 		$parser = new TOGoS_XMLRDFParser_XML_XMLParser($this->p);
-		$parser->trimText = false;
 		$parser->parse($text);
 		$this->assertEquals($text, $this->output);
 	}

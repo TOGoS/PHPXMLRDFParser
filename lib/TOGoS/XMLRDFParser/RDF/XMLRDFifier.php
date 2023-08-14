@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Consumes XML tags, building an RDF structure
+ * which may be accessed with getRootValue();
+ */
 class TOGoS_XMLRDFParser_RDF_XMLRDFifier
 	implements TOGoS_XMLRDFParser_XML_XMLConsumer
 {
@@ -29,6 +33,8 @@ class TOGoS_XMLRDFParser_RDF_XMLRDFifier
 	}
 	
 	public function text( $text ) {
+		if( $this->state['type'] == 'object' && trim($text) == '' ) return;
+		
 		$this->provideValue( TOGoS_XMLRDFParser_RDF_RDFObject::dataValue($text) );
 	}
 	protected function provideValue( TOGoS_XMLRDFParser_RDF_RDFObject $obj ) {
@@ -154,8 +160,12 @@ class TOGoS_XMLRDFParser_RDF_XMLRDFifier
 	 */
 	public function parse( $xml ) {
 		$namespacifier = new TOGoS_XMLRDFParser_XML_XMLNamespacifier( $this );
-		$xmlparser = new TOGoS_XMLRDFParser_XML_XMLParser( $namespacifier );
-		$xmlparser->parse( $xml );
+		$textTrimmer = new TOGoS_XMLRDFParser_XML_BufferedTextTransformer(function($text) { return trim($text); }, $namespacifier);
+		$xmlParser = new TOGoS_XMLRDFParser_XML_XMLParser( $textTrimmer );
+		$xmlParser->parse( $xml );
+		unset($xmlParser);
+		unset($textTrimmer);
+		unset($namespacifier);
 		return $this->getRootObject();
 	}
 }
