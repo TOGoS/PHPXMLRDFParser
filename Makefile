@@ -17,4 +17,4 @@ composer.lock: | composer.json
 	composer install
 
 run-unit-tests: vendor
-	vendor/bin/phpunit --bootstrap vendor/autoload.php test
+	vendor/bin/phpsimplertest --bootstrap vendor/autoload.php test
